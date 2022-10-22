@@ -43,7 +43,7 @@
 			label = "blue:power";
 			function = LED_FUNCTION_POWER;
 			color = <LED_COLOR_ID_BLUE>;
-			gpios = <&tlmm 35 GPIO_ACTIVE_LOW>;
+			gpios = <&tlmm 10 GPIO_ACTIVE_LOW>;
 		};
 
 		led-1 {
@@ -71,6 +71,10 @@
 	};
 
 	soc {
+		ess-psgmii@98000 {
+			status = "okay";
+		};
+
 		tcsr@1949000 {
 			compatible = "qcom,tcsr";
 			reg = <0x1949000 0x100>;
@@ -95,6 +99,14 @@
 			compatible = "qcom,tcsr";
 			reg = <0x1957000 0x100>;
 			qcom,wifi_noc_memtype_m0_m2 = <TCSR_WIFI_NOC_MEMTYPE_M0_M2>;
+		};
+
+		ess-switch@c000000 {
+			status = "okay";
+		};
+
+		edma@c080000 {
+			status = "okay";
 		};
 	};
 };
@@ -307,31 +319,17 @@
 	status = "okay";
 };
 
-&gmac {
-	status = "okay";
+&gmac0 {
 	nvmem-cell-names = "mac-address";
 	nvmem-cells = <&macaddr_mac_0>;
 };
 
-&switch {
-	status = "okay";
-};
-
-&swport2 {
-	status = "okay";
-
-	label = "wan";
-
+&gmac1 {
 	nvmem-cell-names = "mac-address";
 	nvmem-cells = <&macaddr_mac_0>;
 	mac-address-increment = <1>;
 };
 
-&swport5 {
-	status = "okay";
-
-	label = "lan";
-};
 
 &qpic_bam {
 	status = "okay";

@@ -1048,7 +1048,8 @@ define Device/sony_ncp-hg100-cellular
 	DEVICE_PACKAGES := e2fsprogs ipq-wifi-sony_ncp-hg100-cellular \
 		kmod-fs-ext4 uqmi
 endef
-TARGET_DEVICES += sony_ncp-hg100-cellular
+# Missing DSA Setup
+#TARGET_DEVICES += sony_ncp-hg100-cellular
 
 define Device/teltonika_rutx10
 	$(call Device/FitImage)
@@ -1118,7 +1119,8 @@ define Device/zte_mf289f
 	DEVICE_MODEL := MF289F
 	DEVICE_PACKAGES += ipq-wifi-zte_mf289f ath10k-firmware-qca9984-ct
 endef
-TARGET_DEVICES += zte_mf289f
+# Missing DSA Setup
+#TARGET_DEVICES += zte_mf289f
 
 define Device/zyxel_nbg6617
 	$(call Device/FitImageLzma)
